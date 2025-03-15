@@ -86,8 +86,15 @@ void load_words(set<string> & word_list, const string& file_name)
 
 void print_word_ladder(const vector<string>& ladder)
 {
-    cout << ladder.size() << endl;
-    
+    // cout << ladder.size() << endl;
+
+    if (ladder.size() == 0)
+    {
+        cout << "No word ladder found." << endl;
+        return;
+    }
+
+    cout << "Word ladder found: ";
     for (int i = 0; i < ladder.size(); ++i)
     {
         cout << ladder[i] << (i + 1 < ladder.size() ? " " : " \n");
@@ -103,6 +110,8 @@ void verify_word_ladder()
     load_words(word_list, "/home/evienc/ICS46/ics-46-hw-9-EvienCheng/src/words.txt");
 
     my_assert(generate_word_ladder("cat", "dog", word_list).size() == 4);
+
+    // print_word_ladder(generate_word_ladder("cat", "dog", word_list));
 
     my_assert(generate_word_ladder("marty", "curls", word_list).size() == 6);
 
